@@ -2,20 +2,24 @@ import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  Text,
 } from 'react-native';
+import StartGameScreen from "./screens/StartGameScreen";
 
 
 function App(): JSX.Element {
 
   return (
-    <SafeAreaView>
-        <Text style={{color: 'white'}}>Hello World!</Text>
+    <SafeAreaView style={styles.mainContainer}>
+        <StartGameScreen />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: '#6e4cc4',
+  }
 });
 
 export default App;
