@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from "react-native";
+import { Platform, StyleSheet, Text } from "react-native";
 
 interface TitleProps {
   children: string
@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: 'white',
     textAlign: "center",
-    borderWidth: 2,
+    // borderWidth: Platform.OS === "android" ? 2 : 1,
+    borderWidth: Platform.select({ios: 2, android: 1}),
+    //todo: or duplicate file and rename to: Title.android/ios.tsx - automatically applies - check imports (should be without .[platform])
     borderColor: 'white',
     padding: 12,
   }
