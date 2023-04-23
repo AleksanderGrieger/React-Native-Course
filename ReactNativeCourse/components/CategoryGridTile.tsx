@@ -1,4 +1,4 @@
-import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 interface CategoryGridTileProps {
   title: string;
@@ -31,13 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 16,
     height: 150,
-    borderRadius: 8,
-    elevation: 4,
-    shadowColor: "black",
-    shadowOpacity: 0.25,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
-    overflow: Platform.OS === "android" ? "hidden" : "visible"
+    borderRadius: 8
   },
   button: {
     flex: 1

@@ -4,26 +4,51 @@ import Meal from "../models/meal";
 import MealDetails from "./MealDetails";
 import Subtitle from "./MealDetail/Subtitle";
 import List from "./MealDetail/List";
-import { useLayoutEffect } from "react";
+import { useContext, useLayoutEffect } from "react";
 import IconButton from "./IconButton";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons/faStar";
+import { faStar as faStarReg } from "@fortawesome/free-regular-svg-icons/faStar";
+// import { FavouritesContext } from "../store/context/favourites-context";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavourite, removeFavourite } from "../store/redux/favourites";
 
 const MealDetailsScreen = ({ route, navigation }: { route: any, navigation: any }) => {
+  // const favouritesCtx = useContext(FavouritesContext);
+
+  // @ts-ignore
+  const favouriteMealIds = useSelector((state) => state.favouriteMeals.ids);
+  const dispatch = useDispatch();
+
   const mealId = route.params.mealId;
   // @ts-ignore
   const selectedMeal: Meal = MEALS.find(meal => meal.id === mealId);
+  // const mealIsFavourite: boolean = favouritesCtx.ids.includes(mealId);
+  const mealIsFavourite: boolean = favouriteMealIds.includes(mealId);
 
   const headerButtonPressHandler = () => {
-    console.log("xd");
+    if (mealIsFavourite) {
+      // favouritesCtx.removeFavourite(mealId);
+      dispatch(removeFavourite({ id: mealId }));
+    } else {
+      // favouritesCtx.addFavourite(mealId);
+      dispatch(addFavourite({ id: mealId }));
+    }
   };
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <IconButton icon={faStar} color={"white"} size={25} onPress={headerButtonPressHandler} />;
+        return (
+          <IconButton
+            icon={mealIsFavourite ? faStarSolid : faStarReg}
+            color={mealIsFavourite ? "gold" : "white"}
+            size={25}
+            onPress={headerButtonPressHandler}
+          />
+        );
       }
     });
-  }, []);
+  }, [mealIsFavourite]);
 
   return (
     <ScrollView style={styles.rootContainer}>
