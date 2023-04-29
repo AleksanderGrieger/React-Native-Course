@@ -20,8 +20,6 @@ const ExpensesOverview = () => {
             headerTintColor: "white",
             tabBarStyle: {backgroundColor: GlobalStyles.colors.primary500},
             tabBarActiveTintColor: GlobalStyles.colors.accent500,
-            tabBarInactiveTintColor: GlobalStyles.colors.primary200,
-            content: {backgroundColor: "#06399a"},
             headerRight: ({tintColor}) => {
                 return <IconButton
                     icon='add'
@@ -32,11 +30,11 @@ const ExpensesOverview = () => {
         })}
         >
             <BottomTabs.Screen
-                name="ResentExpenses"
+                name="RecentExpenses"
                 component={RecentExpenses}
                 options={{
-                    title: "Resent Expenses",
-                    tabBarLabel: "Resent",
+                    title: "Recent Expenses",
+                    tabBarLabel: "Recent",
                     tabBarIcon: ({color, size}) =>
                         <Ionicons name='hourglass' size={size} color={color}/>
                 }}
