@@ -3,7 +3,7 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {StatusBar} from "expo-status-bar";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import RecentExpenses from "./screens/RecentExpenses";
+import {RecentExpenses} from "./screens/RecentExpenses";
 import {ManageExpense} from "./screens/ManageExpense";
 import {GlobalStyles} from "./constants/styles";
 import {Ionicons} from "@expo/vector-icons"
