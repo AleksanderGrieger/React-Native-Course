@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ReactNativeCourseExpo",
+    "name": "Expense Tracker",
     "slug": "ReactNativeCourseExpo",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,7 +15,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.olog1209.ReactNativeCourseExpo"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +27,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "945afcb0-582e-4822-a4ad-db8bb30e17b5"
+      }
     }
   }
 }
